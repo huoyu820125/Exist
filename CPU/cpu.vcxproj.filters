@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source\frame_src">
+      <UniqueIdentifier>{24628650-f912-48ba-9957-dfb1e1f2a378}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header">
+      <UniqueIdentifier>{7681c1fa-30df-41e6-ac8a-7577aac0279b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\frame">
+      <UniqueIdentifier>{bdb33bf3-87b1-4018-94f8-b882fd4a0e88}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Exist\Double.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Vector.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Float.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int16.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int32.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int64.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int8.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Map.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt16.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt32.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt64.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt8.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ConnectPool.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Value.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Container.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Element.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\IOBus.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Key.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\KVData.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\MD5Helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\Protocol.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ExistType.h">
+      <Filter>Header\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Stream.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Double.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Float.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Int8.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Int16.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Int32.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Int64.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Map.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Stream.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UInt8.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UInt16.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UInt32.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UInt64.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vector.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\ConnectPool.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\Container.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\Element.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\IOBus.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\Key.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\KVData.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\Value.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\common.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\MD5Helper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\Protocol.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="source\frame\ExistType.cpp">
+      <Filter>Source\frame_src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

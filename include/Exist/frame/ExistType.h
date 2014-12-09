@@ -1,0 +1,64 @@
+#ifndef EXIST_TYPE_H
+#define EXIST_TYPE_H
+
+#include "mdk/FixLengthInt.h"
+
+namespace DataType
+{
+	enum DataType
+	{
+		uninit = 0,
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//类型
+		lock,
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//基础数据类型，占int8~value段
+		int8,
+		uInt8,
+		int16,
+		uInt16,
+		int32,
+		uInt32,
+		int64,
+		uInt64,
+		sFloat,			//仅c++支持
+		sDouble,		//仅c++支持
+		stream,			//变长数据流
+		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//容器类型
+		vector,
+		map,
+	};
+	bool IsValue( const char dt );//是数值类型
+	bool IsContainer( const char dt );//是容器类型
+}
+
+namespace exist
+{
+
+#pragma pack(1)
+	//数据Key
+	typedef struct DATA_KEY
+	{
+		char			key[256];			//key
+		unsigned short	keySize;			//key长度
+		unsigned int	hashid;				//key经过hash计算得到的int32
+		char			type;				//数据类型
+		char			elementType;		//元素类型
+	}DATA_KEY;
+#pragma pack()
+}
+
+namespace UpdateType
+{
+	enum UpdateType
+	{
+		utCopy = 0,		// =
+		utAddSelf,		// +=
+		utSubtractSelf,	// -=
+		utMultiplySelf,	// *=
+		utDivideSelf,	// /=
+	};
+}
+
+#endif //EXIST_TYPE_H

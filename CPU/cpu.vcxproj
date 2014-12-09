@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B2B187C0-A218-4B60-820F-761201E15E4E}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Exist</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)_d</TargetName>
+    <OutDir>..\lib</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+    <OutDir>..\lib</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Micro-Development-Kit\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy ..\Micro-Development-Kit\lib\mdk_d.lib ..\lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\Micro-Development-Kit\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy ..\Micro-Development-Kit\lib\mdk.lib ..\lib</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\common.h" />
+    <ClInclude Include="..\common\MD5Helper.h" />
+    <ClInclude Include="..\common\Protocol.h" />
+    <ClInclude Include="..\include\Exist\Double.h" />
+    <ClInclude Include="..\include\Exist\Float.h" />
+    <ClInclude Include="..\include\Exist\frame\ConnectPool.h" />
+    <ClInclude Include="..\include\Exist\frame\Container.h" />
+    <ClInclude Include="..\include\Exist\frame\Element.h" />
+    <ClInclude Include="..\include\Exist\frame\ExistType.h" />
+    <ClInclude Include="..\include\Exist\frame\IOBus.h" />
+    <ClInclude Include="..\include\Exist\frame\Key.h" />
+    <ClInclude Include="..\include\Exist\frame\KVData.h" />
+    <ClInclude Include="..\include\Exist\frame\Value.h" />
+    <ClInclude Include="..\include\Exist\Int16.h" />
+    <ClInclude Include="..\include\Exist\Int32.h" />
+    <ClInclude Include="..\include\Exist\Int64.h" />
+    <ClInclude Include="..\include\Exist\Int8.h" />
+    <ClInclude Include="..\include\Exist\Map.h" />
+    <ClInclude Include="..\include\Exist\Stream.h" />
+    <ClInclude Include="..\include\Exist\UInt16.h" />
+    <ClInclude Include="..\include\Exist\UInt32.h" />
+    <ClInclude Include="..\include\Exist\UInt64.h" />
+    <ClInclude Include="..\include\Exist\UInt8.h" />
+    <ClInclude Include="..\include\Exist\Vector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\common.cpp" />
+    <ClCompile Include="..\common\MD5Helper.cpp" />
+    <ClCompile Include="..\common\Protocol.cpp" />
+    <ClCompile Include="source\Double.cpp" />
+    <ClCompile Include="source\Float.cpp" />
+    <ClCompile Include="source\frame\ConnectPool.cpp" />
+    <ClCompile Include="source\frame\Container.cpp" />
+    <ClCompile Include="source\frame\Element.cpp" />
+    <ClCompile Include="source\frame\ExistType.cpp" />
+    <ClCompile Include="source\frame\IOBus.cpp" />
+    <ClCompile Include="source\frame\Key.cpp" />
+    <ClCompile Include="source\frame\KVData.cpp" />
+    <ClCompile Include="source\frame\Value.cpp" />
+    <ClCompile Include="source\Int16.cpp" />
+    <ClCompile Include="source\Int32.cpp" />
+    <ClCompile Include="source\Int64.cpp" />
+    <ClCompile Include="source\Int8.cpp" />
+    <ClCompile Include="source\Map.cpp" />
+    <ClCompile Include="source\Stream.cpp" />
+    <ClCompile Include="source\UInt16.cpp" />
+    <ClCompile Include="source\UInt32.cpp" />
+    <ClCompile Include="source\UInt64.cpp" />
+    <ClCompile Include="source\UInt8.cpp" />
+    <ClCompile Include="source\Vector.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

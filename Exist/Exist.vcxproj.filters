@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{cbd7a7b9-7f4e-46ed-8021-00b163cabb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{742867ce-09cd-4d64-8e7b-41662667ed2b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\BStructSvr.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\common.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\ExistFS.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="Exist.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="NoDB.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="RHTable.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\MD5Helper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\Protocol.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CPU\source\frame\ExistType.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\BStructSvr.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\ExistFS.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="Exist.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="NoDB.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="RHTable.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\MD5Helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\Protocol.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ExistType.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+    <None Include="..\conf\Exist.cfg" />
+  </ItemGroup>
+</Project>

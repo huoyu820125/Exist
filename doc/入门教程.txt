@@ -1,0 +1,115 @@
+1．什么是外存
+
+外存本质上是一个内存级别的nosql。
+它提出了“面向变量”的数据访问思想，让用户只见变量，不见接口，省去了繁琐的接口调用。
+以此实现了逻辑与数据分离的效果,一份单结点代码自动达到分布式效果。
+外存拥有卓越的性能，单1client时，对于非持久化数据达到3万/秒吞吐，对于持久化数据达到2万/秒吞吐
+client并发越多性能也就越高。
+
+
+目前提供了int8、uint8、uint64、float、double等基础类型变量的操作,后续将实现map vector类型变量操作。
+
+
+2.应用场景对比
+服务上有3段逻辑，用户登录时，用户发表文章时，用户发表评论时，要提升用户等级
+传统数据库接口方式
+申明数据连接 db;
+db.connect();
+OnLogin()
+{
+申明变量 level
+get(表名，"level"， level);
+level++;
+set(表名，"level", level);
+}
+OnSend()
+{
+申明变量 level
+get(表名，"level"， level);
+level++
+set(表名，"level", level);
+}
+OnReply()
+{
+申明变量 level
+get(表名，"level"， level);
+level++
+set(表名，"level", level);
+}
+
+面向变量的访问方式
+Exist::int32 m_var("level");//申明变量 
+OnLogin()
+{
+   var++;//数据已经在外存服务器上修改，下次访问将在新值基础上
+}
+OnSend()
+{
+   var++;//数据已经在外存服务器上修改，下次访问将在新值基础上
+}
+OnReply()
+{
+   var++;//数据已经在外存服务器上修改，下次访问将在新值基础上
+}
+就这么简单
+
+
+3.安装
+linux
+进入根目录,make编译
+编译
+bin下生成4个程序：Mother,SolidStateDrive,Exist,test
+lib下生成2个lib库：cpu.a mdk.a
+
+windows
+使用VS2010打开winproject编译
+很快我将提供VC++6.0的工程文件，让低于VS2010的用户可以通过VC++6.0工程文件转换得到对应项目文件编译
+
+4.文件说明
+Mother的角色是主板，负责所有服务，客户程序之间联系定位
+SolidStateDrive的角色是固态硬盘，负责数据持久化，实际就是一个带有持久化功能的Exist
+Exist角色是外存,负责数据缓存，实际就是一个内存nosql
+test测试程序
+mdk.a一个开源网络引擎
+cpu.a外存提供的client接口库，依赖mdk，用户程序需要同时连接mdk.a与cpu.a
+
+5.配置文件
+单结点运行，按照配置文件注释将ip 端口设置好即可
+分布式运行，将在Mother.cfg中Exist和Hard Disk数量定义成>1即可，相应的需要启动对应数量的Exist和SolidStateDrive
+
+6.启动/停止服务
+linux下
+./start.sh Mother 启动主板
+./start.sh SolidStateDrive 启动固态硬盘
+./start.sh Exist启动外存
+./kill.sh 杀死所有服务
+./kill.sh Mother杀死主板，其它同
+./list.sh 显示所有正在运行的服务
+
+如果shell脚本运行出现错syntax error: unexpected end of file
+解决办法1：将脚本内容复制，删除脚本，重新创建脚本文件粘贴进去即可
+解决办法2：不用脚本，直接执行对应程序，脚本的作用只是让程序在后台执行，另外执行前检查了进程是否存在，非常简单
+
+
+windows上直接执行/杀死
+启动没有顺序要求
+
+服务启动后，用户程序就可以访问外存了
+
+7.用户程序访问
+7.1.修改配置文件cpu.cfg，配置自身ip，与主板IP端口
+提示：cpu.cfg文件应该与执行程序在同一目录下
+
+7.2.连接mdk.a cpu.a
+7.3.包含include/Exist/Exist.h
+7.4.首先调用Exist::PlugIn()插入主板，
+7.5.使用Exist::Float Exist::int8 Exist::uint64 SSD::Float SSD::int8 SSD::uint64等类型操作数据,
+具体代可参考test.cpp
+
+8.类型说明
+Exist::类型申明的数据是非持久化数据,这些数据只是保存在Exist上,当Exist重启后就会丢失,不需要配置SolidStateDrive
+SSD::类型申明的数据是持久化数据，这些数据都会通过SolidStateDrive写入硬盘上，必须配置至少1个SolidStateDrive并运行
+
+9.提示
+java php用户接口尚未实现,参考通信协议文档(待补充),直接发包访问外存服务.
+直接使用通信协议访问外存的朋友,请记得打开套接字的TCP_NODELAY设置,达到高吞吐

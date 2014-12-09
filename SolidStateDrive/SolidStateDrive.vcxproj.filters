@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{83af07b2-78d5-4ce6-9b47-c2e6ddd66155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{374190e5-54f6-41ff-8720-18c895d3ed60}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\BStructSvr.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\common.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Exist\Exist.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Exist\NoDB.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Exist\RHTable.cpp">
+      <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\ExistFS.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\MD5Helper.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\Protocol.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CPU\source\frame\ExistType.cpp">
+      <Filter>common</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\BStructSvr.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\common.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exist\Exist.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exist\NoDB.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Exist\RHTable.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\ExistFS.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\MD5Helper.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\Protocol.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ExistType.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+    <None Include="..\conf\SolidStateDrive.cfg" />
+  </ItemGroup>
+</Project>

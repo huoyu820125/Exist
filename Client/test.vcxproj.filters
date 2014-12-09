@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{bd5e0350-0e7c-46d1-9a2e-422296a058cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{a8094c3d-f5a9-46e0-8adf-407c390d4181}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{39ff6bfe-a2f7-4757-98d4-d4aabd956532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\frame cpp">
+      <UniqueIdentifier>{cb2bf20b-a377-455c-a509-9b61051f96be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\frame">
+      <UniqueIdentifier>{b6037ca5-33f9-471e-8819-0aeef0cd05b9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\Exist\Double.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Float.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int8.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int16.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int32.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Int64.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Map.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt8.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt16.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt32.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\UInt64.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Vector.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ConnectPool.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Container.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Element.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\IOBus.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Key.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\KVData.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\Value.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\frame\ExistType.h">
+      <Filter>include\frame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Exist\Stream.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+    <None Include="..\conf\cpu.cfg" />
+  </ItemGroup>
+</Project>

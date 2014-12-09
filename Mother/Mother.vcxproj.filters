@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{fe8f6819-b94a-43e5-97aa-c55c9dba25d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4b4bfd74-78b9-4178-8007-172f989578c8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\BStructSvr.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\common.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="TCPWorker.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Mother.cpp" />
+    <ClCompile Include="..\common\Protocol.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\BStructSvr.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\common.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="TCPWorker.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Mother.h" />
+    <ClInclude Include="..\common\Protocol.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
+    <None Include="..\conf\Mother.cfg" />
+  </ItemGroup>
+</Project>
