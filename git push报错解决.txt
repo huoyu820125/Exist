@@ -1,0 +1,7 @@
+修改.git/config
+remote = origin
+改为
+remote = origin master
+
+然后pull
+然后push
