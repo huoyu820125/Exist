@@ -2,6 +2,8 @@
 #如果make文件名是makefile，直接使用make就可以编译
 #如果make文件名不是makefile，比如test.txt，那么使用make -f test.txt
 
+include ../dependence
+
 #------------------------------------------检查操作系统32位64位--------------------------------------------------------
 #SYS_BIT=$(shell getconf LONG_BIT)
 #SYS_BIT=$(shell getconf WORD_BIT)
@@ -28,7 +30,7 @@ APXS = apxs
 #范例：
 #ROOT_DIR=../../../..
 Root_dir=..
-Mdk_dir=$(Root_dir)/Micro-Development-Kit
+Mdk_dir=../$(MDK_ROOT)
 
 #依赖文件全局查找目录
 VPATH = $(OBJ_OUTPUT_DIR) $(SRC_DIR) 

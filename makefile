@@ -2,6 +2,8 @@
 #如果make文件名是makefile，直接使用make就可以编译
 #如果make文件名不是makefile，比如test.txt，那么使用make -f test.txt
 
+include dependence
+
 #————————————编译子模块————————————#
 #方法一：(make -C subdir) 
 #方法二：(cd subdir && make)
@@ -13,7 +15,7 @@ Output_bin_dir=./bin
 $(shell mkdir $(Output_lib_dir))
 $(shell mkdir $(Output_bin_dir))
 
-MDK_dir=./Micro-Development-Kit
+MDK_dir=$(MDK_ROOT)
 Mother_Dir=./Mother
 SSD_dir=./SolidStateDrive
 Exist_dir=./Exist

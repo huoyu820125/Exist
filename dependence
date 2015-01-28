@@ -1,0 +1,2 @@
+#在这里定义mdk根目录,只支持Micro-Development-Kit1.91以上版本含1.91
+MDK_ROOT=./Micro-Development-Kit

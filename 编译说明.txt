@@ -1,0 +1,10 @@
+linux平台
+直接make指令,将使用默认mdk路径编译Exist
+如自己项目已使用mdk,为避免自己项目中mdk版本与Exist使用版本不一致,可在dependence中修改mdk根目录位置,使用同一版本mdk编译Exist
+注:mdk版本不可低于1.90
+
+
+win平台
+直接编译即可,如果需修改mdk路径,自行在项目中修改
+
+

@@ -21,7 +21,7 @@
 #define MAX_HASH_32 0x7fffffff
 typedef	void (*pHashFunction)(unsigned char *hashKey, unsigned int &hashSize, unsigned char *key, unsigned int size );
 
-#include "../Micro-Development-Kit/include/mdk/FixLengthInt.h"
+#include "mdk/FixLengthInt.h"
 
 class RHTable  
 {

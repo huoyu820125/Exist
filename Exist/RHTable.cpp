@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <cstring>
 #include <cstdlib>
-#include "../Micro-Development-Kit/include/mdk/mapi.h"
+#include "mdk/mapi.h"
 
 
 //////////////////////////////////////////////////////////////////////
