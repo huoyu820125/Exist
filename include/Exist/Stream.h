@@ -30,7 +30,7 @@ public:
 	*/
 	bool GetData(unsigned char *pData, int &size);
 	unsigned char* GetData(int &size);//会new合适大小的内存到返回，用完记得释放
-	bool SetData(const std::string data, int size);
+	bool SetData(void *data, int size);
 };
 
 }
@@ -56,7 +56,7 @@ public:
 	*/
 	bool GetData(unsigned char *pData, int &size);
 	unsigned char* GetData(int &size);//会new合适大小的内存到返回，用完记得释放
-	bool SetData(const std::string data, int size);
+	bool SetData(void *data, int size);
 };
 
 }

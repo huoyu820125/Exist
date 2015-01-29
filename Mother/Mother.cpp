@@ -20,6 +20,7 @@ int main( int argc, char** argv )
 	sprintf( configFile, "%s/../conf/Mother.cfg", exeDir );
 	
 	TCPWorker ser( configFile );
+	ser.GetLog().Info( "info:", "∂¡»°≈‰÷√%s", configFile );
 	const char *ret = ser.Start();
 	if ( NULL != ret )
 	{

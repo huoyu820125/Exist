@@ -1,2 +1,4 @@
-V1.23(2015-01-29 14:39)
-Stream::GetData()失败返回NULL
+V1.24(2015-01-29 16:53)
+
+1.bool Stream::SetData(const std::string data, int size); data改为const void*
+2.所有模块启动打印读取的配置文件路径,方便检查配置文件位置是否正确

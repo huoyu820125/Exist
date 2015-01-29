@@ -51,6 +51,7 @@ void* ConnectPool::GuideThread( void * )
 	mdk::GetExeDir( exeDir, size );//取得可执行程序位置
 	char configFile[256];
 	sprintf( configFile, "%s/cpu.cfg", exeDir );
+	m_log.Info( "info:", "读取cpu配置%s", configFile );
 	
 	mdk::ConfigFile cfg;
 	if ( !cfg.ReadConfig( configFile ) )

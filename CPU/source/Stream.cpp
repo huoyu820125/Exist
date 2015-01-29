@@ -82,11 +82,9 @@ unsigned char* Stream::GetData(int &size)
 	return pData;
 }
 
-bool Stream::SetData(const std::string data, int size)
-//bool SetData(const unsigned char *pData, int size)
+bool Stream::SetData(void *data, int size)
 {
-	char *pData = (char*)data.data();
-	return WriteData(pData, size, UpdateType::utCopy);
+	return WriteData(data, size, UpdateType::utCopy);
 }
 
 }
@@ -161,11 +159,9 @@ namespace SSD
 		return pData;
 	}
 
-	bool Stream::SetData(const std::string data, int size)
-		//bool SetData(const unsigned char *pData, int size)
+	bool Stream::SetData(void *data, int size)
 	{
-		char *pData = (char*)data.data();
-		return WriteData(pData, size, UpdateType::utCopy);
+		return WriteData(data, size, UpdateType::utCopy);
 	}
 
 }

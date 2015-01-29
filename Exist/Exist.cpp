@@ -26,6 +26,7 @@ int main( int argc, char** argv )
 	sprintf( configFile, "%s/../conf/SolidStateDrive.cfg", exeDir );
 #endif
 	NoDB ser( configFile );
+	ser.GetLog().Info( "info:","∂¡»°≈‰÷√%s", configFile );
 	const char *ret = ser.Start();
 	if ( NULL != ret )
 	{
