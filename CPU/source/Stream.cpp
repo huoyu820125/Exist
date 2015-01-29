@@ -47,13 +47,13 @@ Stream::~Stream()
 
 bool Stream::GetData(unsigned char *pData, int &size)
 {
-	if ( !QueryData(size) ) return false;
+	if ( !QueryData(0) ) return false;
 	if ( !ReadData(pData, size) ) 
 	{
 		SeekMsg();
 		return false;
 	}
-
+	
 	return true;
 }
 

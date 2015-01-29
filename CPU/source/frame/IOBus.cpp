@@ -208,8 +208,8 @@ bool IOBus::QueryData(int initSize)
 	pParam->protracted = m_protracted;
 	if ( 0 > cpu.Send(msg, sizeof(MSG_HEADER) + pHeader->msgSize) )
 	{
-		printf( "send close\n" );
-		mdk::mdk_assert(false);
+		cpu.Close();
+		return false;
 	}
 
 	return true;

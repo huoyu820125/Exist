@@ -93,8 +93,8 @@ private:
 	static void SubtractSelf( exist::VALUE *pValue, unsigned char *pData );
 	static void MultiplySelf( exist::VALUE *pValue, unsigned char *pData );
 	static bool DivideSelf( exist::VALUE *pValue, unsigned char *pData );
-	RHTable* GetNosql(DataType::DataType type, unsigned char *path, int size, exist::VALUE **pParent);
-	RHTable* FindNosql(RHTable* pNosql, unsigned char *path, int size, exist::VALUE **pParent);
+	RHTable* GetNosql(bool isProtracted, DataType::DataType type, unsigned char *path, int size, exist::VALUE **pParent);
+	RHTable* FindNosql(bool isProtracted, RHTable* pNosql, unsigned char *path, int size, exist::VALUE **pParent);
 	exist::VALUE* CreateData(CREATE_DATA *pParam, unsigned char *path, int size);//创建数据
 	mdk::Socket* GetSSDConnect(int keyHashid);//取得固态硬盘的同步连接
 
@@ -105,17 +105,30 @@ private:
 	Device::INFO m_motherBoard;//主板
 	mdk::Thread t_exit;//退出程序线程
 
-	RHTable m_nosqlDB;//总表
-	//各基础类型对应表
+	//Exist数据进...Mem
+	//SSD数据进...DB
+	RHTable m_nosqlMem;//内存数据总表
+	RHTable m_nosqlDB;//持久化数据总表
+	//各基础类型对应内存表与持久化表
+	RHTable m_int8Mem;
 	RHTable m_int8DB;
+	RHTable m_uint8Mem;
 	RHTable m_uint8DB;
+	RHTable m_int16Mem;
 	RHTable m_int16DB;
+	RHTable m_uint16Mem;
 	RHTable m_uint16DB;
+	RHTable m_int32Mem;
 	RHTable m_int32DB;
+	RHTable m_uint32Mem;
 	RHTable m_uint32DB;
+	RHTable m_int64Mem;
 	RHTable m_int64DB;
+	RHTable m_uint64Mem;
 	RHTable m_uint64DB;
+	RHTable m_floatMem;
 	RHTable m_floatDB;
+	RHTable m_doubleMem;
 	RHTable m_doubleDB;
 
 	//////////////////////////////////////////////////////////////////////////

@@ -62,16 +62,27 @@ NoDB::NoDB(char* cfgFile)
 
 	m_context.m_bStop = false;
 	m_context.maxMemory = m_cfgFile["opt"]["max memory"];
+	m_nosqlMem.SetRemoteMode(true);
 	m_nosqlDB.SetRemoteMode(true);
+	m_int8Mem.SetRemoteMode(true);
 	m_int8DB.SetRemoteMode(true);
+	m_uint8Mem.SetRemoteMode(true);
 	m_uint8DB.SetRemoteMode(true);
+	m_int16Mem.SetRemoteMode(true);
 	m_int16DB.SetRemoteMode(true);
+	m_uint16Mem.SetRemoteMode(true);
 	m_uint16DB.SetRemoteMode(true);
+	m_int32Mem.SetRemoteMode(true);
 	m_int32DB.SetRemoteMode(true);
+	m_uint32Mem.SetRemoteMode(true);
 	m_uint32DB.SetRemoteMode(true);
+	m_int64Mem.SetRemoteMode(true);
 	m_int64DB.SetRemoteMode(true);
+	m_uint64Mem.SetRemoteMode(true);
 	m_uint64DB.SetRemoteMode(true);
+	m_floatMem.SetRemoteMode(true);
 	m_floatDB.SetRemoteMode(true);
+	m_doubleMem.SetRemoteMode(true);
 	m_doubleDB.SetRemoteMode(true);
 
 #ifdef SSD_DEVICE
@@ -677,48 +688,49 @@ bool NoDB::DivideSelf( exist::VALUE *pValue, unsigned char *pData )
 	return true;
 }
 
-RHTable* NoDB::GetNosql(DataType::DataType type, unsigned char *path, int size, exist::VALUE **pParent)
+RHTable* NoDB::GetNosql(bool isProtracted, DataType::DataType type, unsigned char *path, int size, exist::VALUE **pParent)
 {
 	if ( NULL == path )
 	{
-		if ( DataType::int8 == type ) return &m_int8DB;
-		if ( DataType::uInt8 == type ) return &m_uint8DB;
-		if ( DataType::int16 == type ) return &m_int16DB;
-		if ( DataType::uInt16 == type ) return &m_uint16DB;
-		if ( DataType::int32 == type ) return &m_int32DB;
-		if ( DataType::uInt32 == type ) return &m_uint32DB;
-		if ( DataType::int64 == type ) return &m_int64DB;
-		if ( DataType::uInt64 == type ) return &m_uint64DB;
-		if ( DataType::sFloat == type ) return &m_floatDB;
-		if ( DataType::sDouble == type ) return &m_doubleDB;
+		if ( DataType::int8 == type ) return isProtracted?&m_int8DB:&m_int8Mem;
+		if ( DataType::uInt8 == type ) return isProtracted?&m_uint8DB:&m_uint8Mem;
+		if ( DataType::int16 == type ) return isProtracted?&m_int16DB:&m_int16Mem;
+		if ( DataType::uInt16 == type ) return isProtracted?&m_uint16DB:&m_uint16Mem;
+		if ( DataType::int32 == type ) return isProtracted?&m_int32DB:&m_int32Mem;
+		if ( DataType::uInt32 == type ) return isProtracted?&m_uint32DB:&m_uint32Mem;
+		if ( DataType::int64 == type ) return isProtracted?&m_int64DB:&m_int64Mem;
+		if ( DataType::uInt64 == type ) return isProtracted?&m_uint64DB:&m_uint64Mem;
+		if ( DataType::sFloat == type ) return isProtracted?&m_floatDB:&m_floatMem;
+		if ( DataType::sDouble == type ) return isProtracted?&m_doubleDB:&m_doubleMem;
 
-		return &m_nosqlDB;
+		return isProtracted?&m_nosqlDB:&m_nosqlMem;
 	}
 	if ( size > (int)(10 * sizeof(exist::DATA_KEY)) ) 
 	{
 		m_log.Info("Error","ÈÝÆ÷Ç¶Ì×³¬¹ý10²ã£¬ÔÝ²»Ö§³Ö");
 		return NULL;
 	}
-	return FindNosql(&m_nosqlDB, path, size, pParent);
+	return FindNosql(isProtracted, &m_nosqlDB, path, size, pParent);
 }
 
-RHTable* NoDB::FindNosql(RHTable* pNosql, unsigned char *path, int size, exist::VALUE **pParent)
+RHTable* NoDB::FindNosql(bool isProtracted, RHTable* pNosql, unsigned char *path, int size, exist::VALUE **pParent)
 {
+	RHTable &nosql = isProtracted?m_nosqlDB:m_nosqlMem;
 	if ( size < (int)sizeof(exist::DATA_KEY) ) return NULL;
 	exist::DATA_KEY *pKey = (exist::DATA_KEY*)path;
-	exist::VALUE *pValue = (exist::VALUE *)m_nosqlDB.Find( (unsigned char*)pKey->key, pKey->keySize, pKey->hashid );
+	exist::VALUE *pValue = (exist::VALUE *)nosql.Find( (unsigned char*)pKey->key, pKey->keySize, pKey->hashid );
 	if ( sizeof(exist::DATA_KEY) == size ) 
 	{
 		*pParent = pValue;
 		return (RHTable*)pValue->pData;
 	}
-	return FindNosql( (RHTable*)pValue->pData, &path[sizeof(exist::DATA_KEY)], size - sizeof(exist::DATA_KEY), pParent );
+	return FindNosql( isProtracted, (RHTable*)pValue->pData, &path[sizeof(exist::DATA_KEY)], size - sizeof(exist::DATA_KEY), pParent );
 }
 
 exist::VALUE* NoDB::CreateData(CREATE_DATA *pParam, unsigned char *path, int size)
 {
 	exist::VALUE *pParent = NULL;
-	RHTable *pNosql = GetNosql((DataType::DataType)pParam->key.type, path, size, &pParent);
+	RHTable *pNosql = GetNosql(pParam->protracted, (DataType::DataType)pParam->key.type, path, size, &pParent);
 	if ( NULL == pNosql ) return NULL;
 	exist::VALUE *pValue = (exist::VALUE*)pNosql->Find((unsigned char*)pParam->key.key, pParam->key.keySize, 
 		pParam->key.hashid);
@@ -794,7 +806,7 @@ void NoDB::OnDeleteData(exist::DATA_KEY *pParam, unsigned char *path, int size)
 	return;
 
 	exist::VALUE *pParent = NULL;
-	RHTable *pNosql = GetNosql((DataType::DataType)pParam->type, path, size, &pParent);
+	RHTable *pNosql = GetNosql(true, (DataType::DataType)pParam->type, path, size, &pParent);
 	if ( NULL == pNosql ) return;
 
 	exist::VALUE *pValue = (exist::VALUE*)pNosql->Find((unsigned char*)pParam->key, pParam->keySize, pParam->hashid);
@@ -825,7 +837,7 @@ void NoDB::OnDeleteData(exist::DATA_KEY *pParam, unsigned char *path, int size)
 void NoDB::OnWriteData(WRITE_DATA *pParam, unsigned char* pData, unsigned char *path, int size)
 {
 	exist::VALUE *pParent = NULL;
-	RHTable *pNosql = GetNosql((DataType::DataType)pParam->key.type, path, size, &pParent);
+	RHTable *pNosql = GetNosql(pParam->protracted, (DataType::DataType)pParam->key.type, path, size, &pParent);
 	if ( NULL == pNosql ) return;
 
 	exist::VALUE *pValue = (exist::VALUE*)pNosql->Find((unsigned char*)pParam->key.key, pParam->key.keySize, pParam->key.hashid);
@@ -900,7 +912,7 @@ void NoDB::OnWriteData(WRITE_DATA *pParam, unsigned char* pData, unsigned char *
 void NoDB::OnReadData(mdk::STNetHost &host, READ_DATA *pParam, unsigned char *path, int size)
 {
 	exist::VALUE *pParent = NULL;
-	RHTable *pNosql = GetNosql((DataType::DataType)pParam->key.type, path, size, &pParent);
+	RHTable *pNosql = GetNosql(pParam->protracted, (DataType::DataType)pParam->key.type, path, size, &pParent);
 	if ( NULL == pNosql ) return;
 
 	MSG_HEADER header;
@@ -1054,6 +1066,7 @@ const char* NoDB::ReadRootData()
 	exist::VALUE rootMap;
 	rootMap.key.key[0] = '\0';
 	rootMap.key.keySize = 0;
+	rootMap.protracted = true;
 	rootMap.pParent = NULL;
 	const char *ret;
 	std::vector<exist::VALUE*> data;
@@ -1088,7 +1101,7 @@ const char* NoDB::ReadRootData()
 		{
 			pValue = data[i];
 			pValue->pParent = NULL;
-			pNosql = GetNosql((DataType::DataType)pValue->key.type, NULL, 0, &pParent);
+			pNosql = GetNosql(pValue->protracted, (DataType::DataType)pValue->key.type, NULL, 0, &pParent);
 			pNosql->Insert((unsigned char*)pValue->key.key, pValue->key.keySize, pValue, pValue->key.hashid);
 		}
 		data.clear();
