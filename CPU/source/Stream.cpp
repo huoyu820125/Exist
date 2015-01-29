@@ -70,7 +70,11 @@ unsigned char* Stream::GetData(int &size)
 			{
 				pData = new unsigned char[size];
 				if ( NULL == pData ) return NULL;
-				ReadData(pData, size);
+				if ( !ReadData(pData, size) ) 
+				{
+					delete[]pData;
+					pData = NULL;
+				}
 			}
 		}
 	}
