@@ -1,4 +1,2 @@
-V1.24(2015-01-29 16:53)
-
-1.bool Stream::SetData(const std::string data, int size); data改为const void*
-2.所有模块启动打印读取的配置文件路径,方便检查配置文件位置是否正确
+V1.25(2015-01-30 11:01)
+修正makefile识别MDK_ROOT是相对路径还是绝对路径

@@ -30,7 +30,12 @@ APXS = apxs
 #范例：
 #ROOT_DIR=../../../..
 Root_dir=..
-Mdk_dir=../$(MDK_ROOT)
+dir_exist = $(shell if [ -d $(MDK_ROOT) ]; then echo "exist"; else echo "notexist"; fi;)
+ifeq ($(dir_exist),exist)
+        Mdk_dir=$(MDK_ROOT)
+else
+        Mdk_dir=../$(MDK_ROOT)
+endif
 
 #依赖文件全局查找目录
 VPATH = $(OBJ_OUTPUT_DIR) $(SRC_DIR) 
