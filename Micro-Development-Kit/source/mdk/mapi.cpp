@@ -276,7 +276,19 @@ bool GetExeDir( char *exeDir, int size )
 mdk::uint64 MillTime()
 {
 #ifdef WIN32
-	return GetTickCount();
+	SYSTEMTIME st;
+	GetLocalTime(&st);
+
+	FILETIME ft;
+	SystemTimeToFileTime( &st, &ft );
+	LONGLONG nLL;
+	ULARGE_INTEGER ui;
+	ui.LowPart = ft.dwLowDateTime;
+	ui.HighPart = ft.dwHighDateTime;
+	nLL = (ft.dwHighDateTime << 32) + ft.dwLowDateTime;
+	mdk::int64 mt = ((LONGLONG)(ui.QuadPart - 116444736000000000) / 10000);
+	mt -= 3600 * 8 * 1000;//日历时间(time()返回的时间)
+	return mt;
 #else
 	struct timespec ts;
 

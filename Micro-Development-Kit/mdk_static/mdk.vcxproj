@@ -106,6 +106,12 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\frame\netserver\STEpoll.h" />
+    <ClInclude Include="..\include\frame\netserver\STIocp.h" />
+    <ClInclude Include="..\include\frame\netserver\STNetConnect.h" />
+    <ClInclude Include="..\include\frame\netserver\STNetEngine.h" />
+    <ClInclude Include="..\include\frame\netserver\STNetHost.h" />
+    <ClInclude Include="..\include\frame\netserver\STNetServer.h" />
     <ClInclude Include="..\include\mdk\atom.h" />
     <ClInclude Include="..\include\mdk\ConfigFile.h" />
     <ClInclude Include="..\include\mdk\Executor.h" />
@@ -136,14 +142,15 @@
     <ClInclude Include="..\include\frame\netserver\NetEventMonitor.h" />
     <ClInclude Include="..\include\frame\netserver\NetHost.h" />
     <ClInclude Include="..\include\frame\netserver\NetServer.h" />
-    <ClInclude Include="..\include\frame\netserver\STEpoll.h" />
-    <ClInclude Include="..\include\frame\netserver\STIocp.h" />
-    <ClInclude Include="..\include\frame\netserver\STNetConnect.h" />
-    <ClInclude Include="..\include\frame\netserver\STNetEngine.h" />
-    <ClInclude Include="..\include\frame\netserver\STNetHost.h" />
-    <ClInclude Include="..\include\frame\netserver\STNetServer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\frame\netserver\STEpoll.cpp" />
+    <ClCompile Include="..\source\frame\netserver\STIocp.cpp" />
+    <ClCompile Include="..\source\frame\netserver\STNetConnect.cpp" />
+    <ClCompile Include="..\source\frame\netserver\STNetEngine.cpp" />
+    <ClCompile Include="..\source\frame\netserver\STNetHost.cpp" />
+    <ClCompile Include="..\source\frame\netserver\STNetServer.cpp" />
+    <ClCompile Include="..\source\mdk\atom.cpp" />
     <ClCompile Include="..\source\mdk\ConfigFile.cpp" />
     <ClCompile Include="..\source\mdk\Executor.cpp" />
     <ClCompile Include="..\source\mdk\FinishedTime.cpp" />
@@ -171,12 +178,6 @@
     <ClCompile Include="..\source\frame\netserver\NetEventMonitor.cpp" />
     <ClCompile Include="..\source\frame\netserver\NetHost.cpp" />
     <ClCompile Include="..\source\frame\netserver\NetServer.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STEpoll.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STIocp.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STNetConnect.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STNetEngine.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STNetHost.cpp" />
-    <ClCompile Include="..\source\frame\netserver\STNetServer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="makefile">

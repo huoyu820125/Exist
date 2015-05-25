@@ -92,7 +92,7 @@ NoDB::NoDB(char* cfgFile)
 	ReadData();//硬盘是数据是持久化的，所以要先读取数据
 #endif
 	m_log.Info( "Run", "寻找主板(%s %d)", m_motherBoard.wanIP.c_str(), m_motherBoard.wanPort );
-	Connect( m_motherBoard.wanIP.c_str(), m_motherBoard.wanPort, 5 );//寻找主板
+	Connect( m_motherBoard.wanIP.c_str(), m_motherBoard.wanPort, NULL, 5 );//寻找主板
 }
 
 NoDB::~NoDB()

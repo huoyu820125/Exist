@@ -43,6 +43,7 @@ void IOBus::ReleaseExistObj( void *pObj )
 
 DataType::DataType IOBus::GetDataType( void *pObj )
 {
+	mdk::AutoLock lock(&s_lockMemoryMap);
 	std::map<void*, int>::iterator it = s_memoryMap.find(pObj);
 	if ( s_memoryMap.end() == it ) return DataType::uninit;
 	IOBus *pContainer = (IOBus*)pObj;
@@ -113,7 +114,7 @@ void IOBus::Copy( const IOBus &right )
 
 IOBus::~IOBus()
 {
-	s_memoryMap.erase( this );
+	ReleaseExistObj( this );
 }
 
 bool IOBus::IsProtracted()

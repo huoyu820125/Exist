@@ -2,15 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="mdk">
-      <UniqueIdentifier>{980f89c1-24d8-4a5d-a308-8e7315eb7e55}</UniqueIdentifier>
+      <UniqueIdentifier>{beea4ff7-8144-41b1-bb69-9914e4ebdcfd}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="frame">
-      <UniqueIdentifier>{38d51a7f-544c-4345-a33a-976dbb5bba95}</UniqueIdentifier>
+      <UniqueIdentifier>{ba3ba6fa-9358-445b-b44e-47807c26debf}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="frame\netserver">
-      <UniqueIdentifier>{349dcdb8-98c3-44f6-aa8a-05965823f809}</UniqueIdentifier>
+      <UniqueIdentifier>{d939f0d7-116e-47d2-86c5-1219340ce654}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -104,19 +104,19 @@
     <ClInclude Include="..\include\frame\netserver\NetServer.h">
       <Filter>frame\netserver</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\frame\netserver\STNetConnect.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\frame\netserver\STNetHost.h">
+      <Filter>frame\netserver</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\frame\netserver\STEpoll.h">
       <Filter>frame\netserver</Filter>
     </ClInclude>
     <ClInclude Include="..\include\frame\netserver\STIocp.h">
       <Filter>frame\netserver</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\frame\netserver\STNetConnect.h">
-      <Filter>frame\netserver</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\frame\netserver\STNetEngine.h">
-      <Filter>frame\netserver</Filter>
-    </ClInclude>
-    <ClInclude Include="..\include\frame\netserver\STNetHost.h">
       <Filter>frame\netserver</Filter>
     </ClInclude>
     <ClInclude Include="..\include\frame\netserver\STNetServer.h">
@@ -205,19 +205,22 @@
     <ClCompile Include="..\source\frame\netserver\NetServer.cpp">
       <Filter>frame\netserver</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\mdk\atom.cpp">
+      <Filter>mdk</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\frame\netserver\STNetConnect.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\frame\netserver\STNetHost.cpp">
+      <Filter>frame\netserver</Filter>
+    </ClCompile>
     <ClCompile Include="..\source\frame\netserver\STEpoll.cpp">
       <Filter>frame\netserver</Filter>
     </ClCompile>
     <ClCompile Include="..\source\frame\netserver\STIocp.cpp">
       <Filter>frame\netserver</Filter>
     </ClCompile>
-    <ClCompile Include="..\source\frame\netserver\STNetConnect.cpp">
-      <Filter>frame\netserver</Filter>
-    </ClCompile>
     <ClCompile Include="..\source\frame\netserver\STNetEngine.cpp">
-      <Filter>frame\netserver</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\frame\netserver\STNetHost.cpp">
       <Filter>frame\netserver</Filter>
     </ClCompile>
     <ClCompile Include="..\source\frame\netserver\STNetServer.cpp">
